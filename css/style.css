@@ -476,7 +476,7 @@ hr {
 }
 
 .etapas {
-    padding: 30px;
+    padding: 15px 30px;
     display: initial;
     
   }
@@ -491,37 +491,77 @@ hr {
   
 
 
-  .problemaRobotic {
+  .problemaRobotic,
+  .pesquisaRobotic,
+  .resultadoRobotic,
+  .problemaMage,
+  .pesquisaMage,
+  .resultadoMage,
+  .problemaSenai,
+  .pesquisaSenai,
+  .resultadoSenai {
+    width: 100%;
+    padding: 8px 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     background: none;
-    display: block;
     border: none;
     color: #ffffff;
     font-size: 24px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    transition: color 0.6s;
-    margin-top: 20px;
-  }
-  
-  .arrow1 {
-    transition: transform 0.6s; 
-  }
-  
-  .arrow1.open {
-    transform: rotate(180deg); 
-  }
+    transition: opacity 0.3s ease;
+    gap: 10px;
+    margin: 0;
+}
 
-  .hidden-problema-robotic {
+/* Estilo para dispositivos touch */
+@media (hover: none) {
+    .problemaRobotic:active,
+    .pesquisaRobotic:active,
+    .resultadoRobotic:active,
+    .problemaMage:active,
+    .pesquisaMage:active,
+    .resultadoMage:active,
+    .problemaSenai:active,
+    .pesquisaSenai:active,
+    .resultadoSenai:active {
+        opacity: 0.7;
+    }
+}
+
+.btn-text {
+    margin-right: 10px;
+}
+
+/* Ajuste para a seta */
+.arrow1, .arrow2, .arrow3,
+.arrow4, .arrow5, .arrow6,
+.arrow7, .arrow8, .arrow9 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    width: 24px;
+    height: 24px;
+}
+
+/* Adiciona a rotação quando a classe .open está presente */
+.arrow1.open, .arrow2.open, .arrow3.open,
+.arrow4.open, .arrow5.open, .arrow6.open,
+.arrow7.open, .arrow8.open, .arrow9.open {
+    transform: rotate(180deg);
+}
+
+.hidden-problema-robotic {
     opacity: 0;
     max-height: 0;
     overflow: hidden; 
     transition: opacity 1s ease-in-out, max-height 1s ease-in-out; 
-    margin-top: 12px;
+    margin-top: 8px;
 }
-
 
 .hidden-problema-robotic.show {
     opacity: 1;
@@ -559,7 +599,7 @@ hr {
     max-height: 0;
     overflow: hidden; 
     transition: opacity 1s ease-in-out, max-height 1s ease-in-out; 
-    margin-top: 12px;
+    margin-top: 8px;
 }
 
 
@@ -649,7 +689,7 @@ hr {
     max-height: 0;
     overflow: hidden; /* Esconde o conteúdo que ultrapassa o max-height */
     transition: opacity 1s ease-in-out, max-height 1s ease-in-out; /* Transição suave de 1 segundo para opacidade e max-height */
-    margin-top: 12px;
+    margin-top: 8px;
 }
 
 /* Estado dos containers quando devem ser visíveis */
@@ -692,7 +732,7 @@ hr {
     max-height: 0;
     overflow: hidden; /* Esconde o conteúdo que ultrapassa o max-height */
     transition: opacity 1s ease-in-out, max-height 1s ease-in-out; /* Transição suave de 1 segundo para opacidade e max-height */
-    margin-top: 12px;
+    margin-top: 8px;
 }
 
 /* Estado dos containers quando devem ser visíveis */
@@ -808,7 +848,7 @@ hr {
     max-height: 0;
     overflow: hidden; /* Esconde o conteúdo que ultrapassa o max-height */
     transition: opacity 1s ease-in-out, max-height 1s ease-in-out; /* Transição suave de 1 segundo para opacidade e max-height */
-    margin-top: 12px;
+    margin-top: 8px;
 }
 
 /* Estado dos containers quando devem ser visíveis */
@@ -851,7 +891,7 @@ hr {
     max-height: 0;
     overflow: hidden; /* Esconde o conteúdo que ultrapassa o max-height */
     transition: opacity 1s ease-in-out, max-height 1s ease-in-out; /* Transição suave de 1 segundo para opacidade e max-height */
-    margin-top: 12px;
+    margin-top: 8px;
 }
 
 /* Estado dos containers quando devem ser visíveis */
@@ -1217,12 +1257,87 @@ footer {
     cursor: pointer;
 }
 
+/* Mantém os hovers apenas para dispositivos que suportam hover (desktop) */
+@media (hover: hover) {
+    .skills img {
+        transition: transform 0.3s ease, width 0.3s ease;
+    }
+
+    .skills img:hover {
+        transform: scale(1.4);
+    }
+
+    .skills img:hover + img {
+        transform: translateX(10px);
+    }
+
+    .skills img:hover ~ img:nth-of-type(0) {
+        transform: translateX(-10px);
+    }
+
+    header nav a:hover {
+        color: #FF6F00;
+        border-color: #FF6F00;
+    }
+
+    .btn:hover {
+        background-color: #FF6F00;
+        color: white;
+        border-color: #FF6F00;
+    }
+
+    .sobre-mim h2:hover {
+        color: #F76C00;
+    }
+
+    .title-container h2:hover {
+        color: #F76C00;
+    }
+
+    .robotic-search h2:hover {
+        color: #F76C00;
+    }
+
+    .project:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 6px 12px rgba(0,0,0,0.3);
+    }
+
+    .view-prototype:hover {
+        background-color: #ff872b;
+    }
+
+    .contact-item img:hover {
+        transform: scale(1.2);
+    }
+
+    .contact-item:hover p {
+        color: #FF6F00;
+    }
+}
+
+/* Remove as transições em dispositivos móveis */
+@media (max-width: 768px) {
+    .skills img,
+    header nav a,
+    .btn,
+    .sobre-mim h2,
+    .title-container h2,
+    .robotic-search h2,
+    .project,
+    .view-prototype,
+    .contact-item img,
+    .contact-item p {
+        transition: none;
+    }
+}
+
 /* 11. Media Queries - Todas juntas */
 @media (max-width: 768px) {
 
     .btn-text {
         font-size: 16px;
-        margin-right: 15px; 
+        margin-right: 8px; 
         /* Espaçamento entre o texto e a seta */
         
       }
@@ -1484,31 +1599,33 @@ footer {
 
     .skills {
         display: flex;
-        padding: 0;
-        gap: 50px;
+        padding: 20px;
+        gap: 25px;
         overflow-x: auto;
-        scroll-behavior: smooth;
-        -webkit-overflow-scrolling: touch;
-        scroll-snap-type: none;
+        justify-content: flex-start;
+        align-items: center;
         scrollbar-width: none;
         -ms-overflow-style: none;
-        pointer-events: none;
-        user-select: none;
-        -webkit-user-select: none;
-        -webkit-touch-callout: none;
-        -webkit-tap-highlight-color: transparent;
+        -webkit-overflow-scrolling: touch;
     }
-
 
     .skills::-webkit-scrollbar {
         display: none;
     }
 
-    .skills img {
-        min-width: 30px;
-        width: 30px;
-        height: 30px;
-        margin-right: 20px;
+    /* Força todas as imagens dentro de .skills a terem 30x30px */
+    .skills img,
+    .robotic-content .skills img,
+    .sobre-mim .skills img {
+        width: 30px !important;
+        height: 30px !important;
+        flex-shrink: 0;
+    }
+
+    /* Ajuste específico para o Kotlin em mobile */
+    .skills #kotlinImg {
+        width: 60px !important;
+        height: 15px !important;
     }
 
     /* Projetos mobile */
@@ -1934,5 +2051,25 @@ footer {
         padding-top: 60px;
         padding-bottom: 20px;
         
+    }
+}
+
+/* Ajuste para mobile */
+@media (max-width: 768px) {
+    .etapas {
+        padding: 10px 20px; /* Reduz ainda mais no mobile */
+    }
+
+    .problemaRobotic,
+    .pesquisaRobotic,
+    .resultadoRobotic,
+    .problemaMage,
+    .pesquisaMage,
+    .resultadoMage,
+    .problemaSenai,
+    .pesquisaSenai,
+    .resultadoSenai {
+        padding: 6px 0; /* Reduz ainda mais no mobile */
+        font-size: 16px;
     }
 }

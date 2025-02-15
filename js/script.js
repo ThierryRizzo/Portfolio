@@ -40,26 +40,16 @@ document.getElementById('home-btn').addEventListener('click', function(e) {
 // Problema Robotic Search
 
 const problemaRobotic = document.querySelector('.problemaRobotic');
-const hiddenProblemaRobotic = document.querySelector('.hidden-problema-robotic'); // ID correto
+const hiddenProblemaRobotic = document.querySelector('.hidden-problema-robotic');
 const arrow1 = document.querySelector('.arrow1');
 
-
-// Adicionando o evento de clique no botão "Ver Mais Projetos"
-problemaRobotic.addEventListener('click', function() {
-  // Verifica se a seção de projetos escondidos está visível
-  if (hiddenProblemaRobotic.classList.contains('show')) {
-    hiddenProblemaRobotic.classList.remove('show');
-    problemaRobotic.classList.remove('ativo'); // Esconde os projetos
-    arrow1.classList.remove('open'); // Reseta a seta
+problemaRobotic.addEventListener('click', function(e) {
+    // Previne comportamento padrão do botão
+    e.preventDefault();
     
-  } else {
-    arrow1.classList.add('open'); // Gira a seta
-    hiddenProblemaRobotic.classList.add('show'); 
-    problemaRobotic.classList.add('ativo');
-    // Mostra os projetos
-    
-    
-  }
+    // Toggle das classes
+    hiddenProblemaRobotic.classList.toggle('show');
+    arrow1.classList.toggle('open');
 });
 
 
@@ -69,22 +59,13 @@ problemaRobotic.addEventListener('click', function() {
 // Pesquisa Robotic Search
 
 const pesquisaRobotic = document.querySelector('.pesquisaRobotic');
-const hiddenPesquisa = document.querySelector('.hidden-pesquisa-robotic'); 
+const hiddenPesquisa = document.querySelector('.hidden-pesquisa-robotic');
 const arrow2 = document.querySelector('.arrow2');
 
-
-// Adicionando o evento de clique no botão "Ver Mais Projetos"
-pesquisaRobotic.addEventListener('click', function() {
-  // Verifica se a seção de projetos escondidos está visível
-  if (hiddenPesquisa.classList.contains('show')) {
-    hiddenPesquisa.classList.remove('show'); // Esconde os projetos
-    arrow2.classList.remove('open'); // Reseta a seta
-    
-  } else {
-    hiddenPesquisa.classList.add('show'); // Mostra os projetos
-    arrow2.classList.add('open'); // Gira a seta
-    
-  }
+pesquisaRobotic.addEventListener('click', function(e) {
+    e.preventDefault();
+    hiddenPesquisa.classList.toggle('show');
+    arrow2.classList.toggle('open');
 });
 
 
@@ -92,22 +73,13 @@ pesquisaRobotic.addEventListener('click', function() {
 // Resultado Robotic Search
 
 const resultadoRobotic = document.querySelector('.resultadoRobotic');
-const hiddenResultado = document.querySelector('.hidden-resultado-robotic'); 
+const hiddenResultado = document.querySelector('.hidden-resultado-robotic');
 const arrow3 = document.querySelector('.arrow3');
 
-
-// Adicionando o evento de clique no botão "Ver Mais Projetos"
-resultadoRobotic.addEventListener('click', function() {
-  // Verifica se a seção de projetos escondidos está visível
-  if (hiddenResultado.classList.contains('show')) {
-    hiddenResultado.classList.remove('show'); // Esconde os projetos
-    arrow3.classList.remove('open'); // Reseta a seta
-    
-  } else {
-    hiddenResultado.classList.add('show'); // Mostra os projetos
-    arrow3.classList.add('open'); // Gira a seta
-    
-  }
+resultadoRobotic.addEventListener('click', function(e) {
+    e.preventDefault();
+    hiddenResultado.classList.toggle('show');
+    arrow3.classList.toggle('open');
 });
 
 
@@ -299,37 +271,3 @@ resultadoSenai.addEventListener('click', function() {
     
   }
 });
-
-function setupMobileSkillsCarousel() {
-    const skillsContainers = document.querySelectorAll('.skills');
-    
-    skillsContainers.forEach(container => {
-        if (window.innerWidth <= 768) {
-            // Clone os itens uma vez
-            const items = container.querySelectorAll('img');
-            items.forEach(item => {
-                const clone = item.cloneNode(true);
-                container.appendChild(clone);
-            });
-
-            // Desabilita interações
-            container.style.pointerEvents = 'none';
-            
-            // Função para scroll contínuo
-            function continuousScroll() {
-                container.scrollLeft += 1;
-                
-                if (container.scrollLeft >= container.scrollWidth / 2) {
-                    container.scrollLeft = 0;
-                }
-                
-                requestAnimationFrame(continuousScroll);
-            }
-
-            continuousScroll();
-        }
-    });
-}
-
-window.addEventListener('load', setupMobileSkillsCarousel);
-window.addEventListener('resize', setupMobileSkillsCarousel);
